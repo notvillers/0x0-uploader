@@ -10,6 +10,8 @@ f_medium = (font_arial, 30)
 f_large = (font_arial, 50)
 sgsize = (800, 400)
 
+sg.theme("BrownBlue")
+
 # 0x0 upload
 def upload(file):
     url = "https://0x0.st"
@@ -34,10 +36,10 @@ def main():
         [sg.Push(), place(sg.Button("", key = "-upload_url-", font = f_large, enable_events = True, visible = False)), sg.Push()],
         [sg.VPush()],
         [sg.HorizontalSeparator()],
-        [sg.Push(), sg.VerticalSeparator(), sg.Push(), sg.Text("Made by:", font = f_footer),sg.Push(), sg.Text("Villers", font = f_footer), sg.Push(), sg.VerticalSeparator(), sg.Push()]
+        [sg.Push(), sg.VerticalSeparator(), sg.Push(), sg.Text("Made by", font = f_footer),sg.Push(), sg.Text(":", font = f_footer), sg.Push(), sg.Text("Villers", font = f_footer), sg.Push(), sg.VerticalSeparator(), sg.Push()]
     ]
 
-    window = sg.Window("0x0.st uploader", layout, resizable = False) # add size = sgsize if you want fix size for the windows
+    window = sg.Window("0x0.st uploader", layout, resizable = False, icon = "icon.ico") # add size = sgsize if you want fix size for the windows
 
     url = None
 
@@ -54,4 +56,5 @@ def main():
                 window["-upload_url-"].update("No file selected")
         if event == "-upload_url-" and url != None:
             webbrowser.open(url, new = 2)
+
 main()
