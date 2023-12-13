@@ -29,7 +29,7 @@ def main():
         [sg.VPush()],
         [sg.Input("", key = "-input-", expand_x = True, font = f_small, readonly = True)],
         [sg.VPush()],
-        [sg.FileBrowse(key = "-IN-", font = f_medium, enable_events = True, target="-input-"), sg.Push(), sg.Button("Upload", key = "-upload-", font = f_medium)],
+        [sg.Push(), sg.FileBrowse(key = "-IN-", font = f_medium, enable_events = True, target="-input-"), sg.Push(), sg.Button("Upload", key = "-upload-", font = f_medium), sg.Push()],
         [sg.VPush()],
         [sg.Push(), place(sg.Button("", key = "-upload_url-", font = f_large, enable_events = True, visible = False)), sg.Push()],
         [sg.VPush()],
