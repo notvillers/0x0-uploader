@@ -25,17 +25,19 @@ def place(elem):
 # GUI
 def main():
     layout = [
-        [sg.Push(), sg.Text("0x0.st", font = f_large), sg.Push()],
+        [sg.Push(), sg.Text("0x0.st uploader", font = f_large), sg.Push()],
+        [sg.VPush()],
         [sg.Input("", key = "-input-", expand_x = True, font = f_small, readonly = True)],
+        [sg.VPush()],
         [sg.FileBrowse(key = "-IN-", font = f_medium, enable_events = True, target="-input-"), sg.Push(), sg.Button("Upload", key = "-upload-", font = f_medium)],
         [sg.VPush()],
         [sg.Push(), place(sg.Button("", key = "-upload_url-", font = f_large, enable_events = True, visible = False)), sg.Push()],
         [sg.VPush()],
         [sg.HorizontalSeparator()],
-        [sg.Push(), sg.Text("Made by:", font = f_footer), sg.Push(), sg.Text("Villers", font = f_footer), sg.Push()]
+        [sg.Push(), sg.VerticalSeparator(), sg.Push(), sg.Text("Made by:", font = f_footer),sg.Push(), sg.Text("Villers", font = f_footer), sg.Push(), sg.VerticalSeparator(), sg.Push()]
     ]
 
-    window = sg.Window("0x0.st uploader", layout, size = sgsize , resizable = False)
+    window = sg.Window("0x0.st uploader", layout, resizable = False) # add size = sgsize if you want fix size for the windows
 
     url = None
 
