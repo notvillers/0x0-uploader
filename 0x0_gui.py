@@ -1,6 +1,8 @@
+import os
 import requests
 import PySimpleGUI as sg
 import webbrowser
+import base64
 
 # PySimpleGUI config
 font_arial = 'Arial'
@@ -11,6 +13,10 @@ f_large = (font_arial, 50)
 sgsize = (800, 400)
 
 sg.theme("BrownBlue")
+
+icon_path = os.path.join(os.path.dirname(__file__), "img", "logo_tb.png")
+
+icon = base64.b64encode(open(icon_path, "rb").read())
 
 # 0x0 upload
 def upload(file):
@@ -26,8 +32,10 @@ def place(elem):
 
 # GUI
 def main():
+    logo_img = os.path.join(os.path.dirname(__file__), "img", "logo.png")
+
     layout = [
-        [sg.Image("logo.png"), sg.Push(), sg.Button("0x0.st", key = "-0x0_buton-", font = f_large, enable_events = True, size = 15)],
+        [sg.Image(logo_img), sg.Push(), sg.Button("0x0.st", key = "-0x0_buton-", font = f_large, enable_events = True, size = 15)],
         [sg.VPush()],
         [sg.Input("", key = "-input-", expand_x = True, font = f_small, readonly = True)],
         [sg.VPush()],
@@ -39,7 +47,7 @@ def main():
         [sg.Push(), sg.VerticalSeparator(), sg.Push(), sg.Text("Made by", font = f_footer),sg.Push(), sg.Text(":", font = f_footer), sg.Push(), sg.Text("Villers", font = f_footer), sg.Push(), sg.VerticalSeparator(), sg.Push()]
     ]
 
-    window = sg.Window("0x0.st uploader", layout, resizable = False, icon = "icon.ico") # add size = sgsize if you want fix size for the windows
+    window = sg.Window("0x0.st uploader", layout, resizable = False, icon = icon) # add size = sgsize if you want fix size for the windows
 
     url = None
 
