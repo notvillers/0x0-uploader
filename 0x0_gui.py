@@ -27,7 +27,7 @@ def place(elem):
 # GUI
 def main():
     layout = [
-        [sg.Push(), sg.Text("0x0.st uploader", font = f_large), sg.Push()],
+        [sg.Image("logo.png"), sg.Push(), sg.Button("0x0.st", key = "-0x0_buton-", font = f_large, enable_events = True, size = 15)],
         [sg.VPush()],
         [sg.Input("", key = "-input-", expand_x = True, font = f_small, readonly = True)],
         [sg.VPush()],
@@ -56,5 +56,7 @@ def main():
                 window["-upload_url-"].update("No file selected")
         if event == "-upload_url-" and url != None:
             webbrowser.open(url, new = 2)
+        if event == "-0x0_buton-":
+            webbrowser.open("https://0x0.st", new = 2)
 
 main()
