@@ -1,3 +1,5 @@
+PySimpleGUI is not FOSS anymore, so I archive the repo...
+
 # GUI for 0x0.st
 
 Uploads a chosen file to the 0x0.st and returns the link for it.
